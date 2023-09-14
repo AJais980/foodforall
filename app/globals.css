@@ -382,7 +382,7 @@ body {
   transform: rotateY(0)
 }
 
-/* .cl-avatarBox.cl-userButtonAvatarBox.🔒️ {
+.cl-avatarBox.cl-userButtonAvatarBox.🔒️ {
   width: 2.5rem;
   height: 2.5rem;
 }
@@ -400,7 +400,7 @@ span.cl-footerActionText.🔒️ {
 
 .cl-socialButtonsIconButton {
   border: 1px solid rgb(255 255 255) !important;
-} */
+}
 
 *::-webkit-scrollbar-track {
   background-color: transparent !important;
