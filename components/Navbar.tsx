@@ -7,7 +7,6 @@ import { AiOutlineHome, AiOutlineShoppingCart } from 'react-icons/ai';
 import { MdOutlineManageHistory } from 'react-icons/md';
 import { PiSignIn } from 'react-icons/pi';
 import { useUser, UserButton, SignInButton } from "@clerk/nextjs";
-import React from 'react'
 
 const Navbar = () => {
     const [theme, setTheme] = useState<String>('light');
