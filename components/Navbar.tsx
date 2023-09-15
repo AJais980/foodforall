@@ -12,7 +12,6 @@ import React from 'react'
 const Navbar = () => {
     const [theme, setTheme] = useState<String>('light');
     const { isSignedIn } = useUser();
-    console.log("User Signed: ", isSignedIn);
     useEffect(() => {
         const userPreferredTheme = localStorage.getItem('theme');
         if (userPreferredTheme) {
