@@ -13,7 +13,9 @@ export default function RootLayout({
         <ClerkProvider>
             <html lang="en">
                 <body data-theme='dark'>
+                    <Navbar />
                     {children}
+                    <Footer />
                 </body>
             </html>
         </ClerkProvider>
