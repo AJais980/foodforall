@@ -6,6 +6,7 @@ import { BiMoon } from 'react-icons/bi';
 import { AiOutlineHome, AiOutlineShoppingCart } from 'react-icons/ai';
 import { MdOutlineManageHistory } from 'react-icons/md';
 import { PiSignIn } from 'react-icons/pi';
+import Link from 'next/link';
 import { useUser, UserButton, SignInButton } from "@clerk/nextjs";
 
 const Navbar = () => {
@@ -66,29 +67,29 @@ const Navbar = () => {
                             </label>
                         </div>
                         <div className='flex-none'>
-                            <a href='/items' className='relative btn btn-square btn-ghost'>
+                            <Link href='/items' className='relative btn btn-square btn-ghost'>
                                 <AiOutlineShoppingCart className='fill-current w-6 h-6'></AiOutlineShoppingCart>
-                            </a>
+                            </Link>
                         </div>
                         <div className='flex-none'>
-                            <a href='/manage' className='relative btn btn-square btn-ghost'>
+                            <Link href='/manage' className='relative btn btn-square btn-ghost'>
                                 <MdOutlineManageHistory className='fill-current w-6 h-6'></MdOutlineManageHistory>
-                            </a>
+                            </Link>
                         </div>
                         <div className='flex-none'>
-                            <a href='/' className='relative btn btn-square btn-ghost'>
+                            <Link href='/' className='relative btn btn-square btn-ghost'>
                                 <AiOutlineHome className='fill-current w-6 h-6'></AiOutlineHome>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
-                <a href="/" className='flex-none'>
+                <Link href="/" className='flex-none'>
                     <div className='w-10 h-10 m-1'>
                         <img src="/logo.jpg" className='rounded-full' alt="Logo" />
                     </div>
-                </a>
+                </Link>
             </div>
-        </div>
+        </div >
     )
 }
 

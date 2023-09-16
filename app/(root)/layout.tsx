@@ -3,7 +3,8 @@ import '../globals.css'
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import Icon from '/public/logo.jpg';
+import Icon from '/public/logo.jpg'
+import NextTopLoader from 'nextjs-toploader'
 
 export const metadata: Metadata = {
   title: 'Food For All',
@@ -12,11 +13,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Food For All',
     description: 'Food For All: Connecting Donors & Recipients. Donate surplus food to the ones who\'re in real need.',
-    url: "https://foodforall-lew6u7nej-ajais980.vercel.app",
+    url: new URL("https://foodforall-lew6u7nej-ajais980.vercel.app"),
     siteName: 'Food For All',
-    images: [{
-      url: "/logo.jpg"
-    }],
   }
 }
 
@@ -29,6 +27,17 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body data-theme={"light"}>
+          <NextTopLoader
+            color={`linear-gradient(to right,
+                    #ffff00 0%,
+                    #ed5a9c 30%,
+                    #f49c69 60%,
+                    #c044e8 100%)`}
+            easing='ease-in'
+            speed={350}
+            height={7}
+            showSpinner={false}
+          />
           <Navbar />
           {children}
           <Footer />

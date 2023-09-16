@@ -417,6 +417,14 @@ body {
     color: var(--txt);
 }
 
+.cl-rootBox * {
+    color: var(--txt);
+}
+
+.cl-formFieldInput {
+    color: black;
+}
+
 .cl-socialButtonsIconButton {
     border: 1px solid rgb(255 255 255) !important;
 }
