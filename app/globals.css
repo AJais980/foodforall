@@ -1,26 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Andika&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* *::selection {
-  color: #ffff;
-  background-color: #000;
-} */
-
 body {
     height: 100%;
     width: 100%;
-    font-family: "Inter", sans-serif;
+    font-family: 'Andika', sans-serif;
     grid-column-start: 1;
     overflow-y: auto;
     transition-property: all;
     transition-duration: .3s;
     transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     --geist-space-16x: 64px;
-    --food-start-gradient: #007cf0;
-    --food-end-gradient: #00dfd8;
+    --food-start-gradient: #00ec6e;
+    --food-end-gradient: #FCEE21;
     --food-line-end: #019ae9;
     --food-text: #0a72ef;
     --for-start-gradient: #7928ca;
@@ -403,7 +398,6 @@ body {
 }
 
 .cl-card {
-    color: var(--txt);
     background-color: hsl(var(--b2, var(--b1))/var(--tw-bg-opacity));
     --tw-backdrop-blur: blur(16px);
     backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
@@ -415,22 +409,21 @@ body {
     --tw-bg-opacity: 0.25;
 }
 
-.cl-userPreviewSecondaryIdentifier,
-.cl-userButtonPopoverActionButtonText,
-.cl-userButtonPopoverActionButtonIcon,
-.cl-userButtonPopoverFooter>div {
+.cl-userButtonPopoverCard * {
     color: var(--txt);
 }
 
-h1.cl-headerTitle.🔒️,
-p.cl-headerSubtitle.🔒️,
-label.cl-formFieldLabel.cl-formFieldLabel__identifier.cl-required.🔒️,
-span.cl-footerActionText.🔒️ {
+.cl-modalBackdrop * {
     color: var(--txt);
 }
 
 .cl-socialButtonsIconButton {
     border: 1px solid rgb(255 255 255) !important;
+}
+
+.cl-navbar {
+    background-color: transparent;
+    border-radius: 1rem;
 }
 
 /*Food For All Title:*/
@@ -592,7 +585,6 @@ span.cl-footerActionText.🔒️ {
 @media (max-width: 960px) {
     .hero_title {
         display: flex;
-        flex-direction: column;
         font-size: 6rem
     }
 }
@@ -606,7 +598,6 @@ span.cl-footerActionText.🔒️ {
 @media (min-height: 1120px) {
     .hero_title {
         display: flex;
-        flex-direction: column;
         font-size: 8rem;
         margin-bottom: var(--geist-space-16x)
     }

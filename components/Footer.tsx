@@ -7,7 +7,7 @@ const Footer = () => {
                 <footer className='bg-base-100/50 backdrop-blur-sm'>
                     <div className="w-full">
                         <div className="shadow-inner container px-5 py-12 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col ">
-                            <div className='w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left'>
+                            <div className='w-48 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left'>
                                 <div className='flex font-medium items-center md:justify-start justify-center cursor-pointer'>
                                     <div className='w-10 h-10 m-1'>
                                         <img src="/logo.jpg" alt="Logo" className='rounded-full' />
@@ -33,11 +33,29 @@ const Footer = () => {
                                         </ul>
                                     </nav>
                                 </div>
+
+                                <div className='lg:w-1/4 md:w-1/2 w-full px-4'>
+                                    <h2 className="font-semibold tracking-widest text-lg mb-3">Social Links</h2>
+                                    <nav className='list-none mb-10'>
+                                        <ul>
+                                            <li>
+                                                <a target="_blank" className="nav-item svelte-17ej2r8" href="https://www.instagram.com/im.amanjaiswal/">Instagram</a>
+                                            </li>
+                                            <li>
+                                                <a target="_blank" className="nav-item svelte-17ej2r8" href="https://www.linkedin.com/in/beingaman/">LinkedIn</a>
+                                            </li>
+                                            <li>
+                                                <a target="_blank" className="nav-item svelte-17ej2r8" href="https://github.com/AJais980">GitHub</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
                             </div>
                         </div>
                         <div className='bg-base-300'>
                             <div className='container mx-auto py-4 px-5 text-center'>
-                                <p>© 2023 Food For All. All rights reserved.</p>
+                                <p>© 2023 Food For All. All rights reserved. By <a target="_blank" className='nav-item svelte-17ej2r8' href='https://www.linkedin.com/in/beingaman/'>- A. J.</a>
+                                </p>
                             </div>
                         </div>
                     </div>

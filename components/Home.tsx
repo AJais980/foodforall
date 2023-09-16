@@ -3,7 +3,7 @@ import React from 'react';
 const Home = () => {
     return (
         <div>
-            <h1 aria-label="Food For All" className="hero_title mt-10">
+            <h1 aria-label="Food For All" className="hero_title">
                 <span className="animated-gradient-text_background txt-food">
                     <span className="animated-gradient-text_foreground-1">
                         Food
