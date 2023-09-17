@@ -28,6 +28,27 @@ body {
     --all-text: #ff5b4f;
 }
 
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbghover);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: var(--scrollbghover);
+}
+
 [data-theme=dark] {
     background-image: url(https://media.discordapp.net/attachments/847516069487968286/987455350800261181/dash_hero_beta.png);
     background-size: cover;

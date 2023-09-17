@@ -8,8 +8,9 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
     title: 'Food For All',
+    metadataBase: new URL('https://acme.com'),
     description: 'Food For All: Connecting Donors & Recipients.',
-    icons: [{ rel: 'icon', url: Icon.src }],
+    icons: [{ rel: 'icon', url: new URL(Icon.src) }],
 }
 
 export default function RootLayout({

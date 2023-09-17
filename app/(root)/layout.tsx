@@ -3,13 +3,12 @@ import '../globals.css'
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import Icon from '/public/logo.jpg'
 import NextTopLoader from 'nextjs-toploader'
 
 export const metadata: Metadata = {
   title: 'Food For All',
+  metadataBase: new URL('https://acme.com'),
   description: 'Food For All: Connecting Donors & Recipients.',
-  icons: [{ rel: 'icon', url: Icon.src }],
   openGraph: {
     title: 'Food For All',
     description: 'Food For All: Connecting Donors & Recipients. Donate surplus food to the ones who\'re in real need.',
@@ -17,6 +16,7 @@ export const metadata: Metadata = {
     siteName: 'Food For All',
   }
 }
+
 
 export default function RootLayout({
   children,

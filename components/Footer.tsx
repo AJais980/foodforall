@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link';
 
 const Footer = () => {
     return (
@@ -22,13 +23,13 @@ const Footer = () => {
                                     <nav className='list-none mb-10'>
                                         <ul>
                                             <li>
-                                                <a className="nav-item svelte-17ej2r8" href="/">Home</a>
+                                                <Link className="nav-item svelte-17ej2r8" href="/">Home</Link>
                                             </li>
                                             <li>
-                                                <a className="nav-item svelte-17ej2r8" href="/manage">Manage</a>
+                                                <Link className="nav-item svelte-17ej2r8" href="/manage">Manage</Link>
                                             </li>
                                             <li>
-                                                <a className="nav-item svelte-17ej2r8" href="/items">Items</a>
+                                                <Link className="nav-item svelte-17ej2r8" href="/items">Items</Link>
                                             </li>
                                         </ul>
                                     </nav>
