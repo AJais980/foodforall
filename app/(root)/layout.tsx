@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body data-theme={"light"}>
+        <body>
           <NextTopLoader
             color={`linear-gradient(to right,
                     #ffff00 0%,

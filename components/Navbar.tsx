@@ -10,7 +10,7 @@ import Link from 'next/link';
 import { useUser, UserButton, SignInButton } from "@clerk/nextjs";
 
 const Navbar = () => {
-    const [theme, setTheme] = useState<String>('light');
+    const [theme, setTheme] = useState<String>('');
     const { isSignedIn } = useUser();
     useEffect(() => {
         const userPreferredTheme = localStorage.getItem('theme');
@@ -23,9 +23,15 @@ const Navbar = () => {
         if (theme === 'dark') {
             document.body.dataset.theme = 'dark';
             localStorage.setItem('theme', 'dark');
-        } else {
+        }
+        else if (theme == 'light') {
             document.body.dataset.theme = 'light';
             localStorage.setItem('theme', 'light');
+        }
+        else {
+            let isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.body.dataset.theme = isDark ? "dark" : "light";
+            localStorage.setItem('theme', isDark ? "dark" : "light");
         }
     }, [theme]);
 
