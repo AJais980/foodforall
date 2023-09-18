@@ -4,6 +4,105 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        background-image: url(https://media.discordapp.net/attachments/847516069487968286/987455350800261181/dash_hero_beta.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: black;
+        color: white;
+        --geist-text-gradient: linear-gradient(180deg, #fff, hsla(0, 0%, 100%, .75));
+        --tw-bg-opacity: 1;
+        --p: 262.12 83.256% 57.843%;
+        --inc: 199.88 100% 13.608%;
+        --suc: 146.03 100% 8.5882%;
+        --wac: 36 100% 10%;
+        --erc: 350.96 100% 91.412%;
+        --rounded-box: 1rem;
+        --rounded-btn: .5rem;
+        --rounded-badge: 1.9rem;
+        --animation-btn: .25s;
+        --animation-input: .2s;
+        --btn-text-case: uppercase;
+        --btn-focus-scale: .95;
+        --border-btn: 1px;
+        --tab-border: 1px;
+        --tab-radius: .5rem;
+        --pf: 268.93 94.258% 40.98%;
+        --pc: 0 0% 100%;
+        --s: 314 100% 47.059%;
+        --sf: 313.97 100% 37.059%;
+        --sc: 0 0% 100%;
+        --a: 174 60% 50.98%;
+        --af: 174.24 59.809% 40.98%;
+        --ac: 0 0% 100%;
+        --n: 0 0% 38.039%;
+        --nf: 0 .75188% 26.078%;
+        --nc: 0 0% 100%;
+        --b1: 0 0% 10.98%;
+        --b2: 0 0% 12.941%;
+        --b3: 0 0% 5.098%;
+        --bc: 0 0% 96.078%;
+        --in: 199.88 100% 68.039%;
+        --su: 146.03 100% 42.941%;
+        --wa: 36 100% 50%;
+        --er: 350.96 100% 57.059%;
+        --txt: white;
+        --selector: #ff00ff;
+        --scrollbg: #ff00ff;
+        --scrollbghover: #00ffff;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        background-image: url(https://media.discordapp.net/attachments/847516069487968286/987455351039344670/dash_light_beta.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: white;
+        color: black;
+        --geist-text-gradient: linear-gradient(180deg, rgba(0, 0, 0, .8), #000);
+        --p: 262.12 83.256% 57.843%;
+        --inc: 219.83 100% 90.784%;
+        --suc: 146.03 100% 8.5882%;
+        --wac: 36 100% 10%;
+        --erc: 350.96 100% 91.412%;
+        --rounded-box: 1rem;
+        --rounded-btn: .5rem;
+        --rounded-badge: 1.9rem;
+        --animation-btn: .25s;
+        --animation-input: .2s;
+        --btn-text-case: uppercase;
+        --btn-focus-scale: .95;
+        --border-btn: 1px;
+        --tab-border: 1px;
+        --tab-radius: .5rem;
+        --pf: 268.93 94.258% 40.98%;
+        --pc: 0 0% 100%;
+        --s: 314 100% 47.059%;
+        --sf: 313.97 100% 37.059%;
+        --sc: 0 0% 100%;
+        --a: 174 60% 50.98%;
+        --af: 174.24 59.809% 40.98%;
+        --ac: 0 0% 100%;
+        --n: 219 14.085% 27.843%;
+        --nf: 221.54 13.402% 19.02%;
+        --nc: 0 0% 100%;
+        --b1: 0 0% 100%;
+        --b2: 210 20% 98.039%;
+        --b3: 216 12.195% 83.922%;
+        --bc: 215 27.907% 16.863%;
+        --in: 219.83 100% 53.922%;
+        --su: 146.03 100% 42.941%;
+        --wa: 36 100% 50%;
+        --er: 350.96 100% 57.059%;
+        --txt: black;
+        --selector: #00ffff;
+        --scrollbg: #00ffff;
+        --scrollbghover: #ff00ff;
+    }
+}
+
 body {
     height: 100%;
     width: 100%;
@@ -53,6 +152,7 @@ body {
     background-image: url(https://media.discordapp.net/attachments/847516069487968286/987455350800261181/dash_hero_beta.png);
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: black;
     color: white;
     --geist-text-gradient: linear-gradient(180deg, #fff, hsla(0, 0%, 100%, .75));
     --tw-bg-opacity: 1;
@@ -91,14 +191,16 @@ body {
     --wa: 36 100% 50%;
     --er: 350.96 100% 57.059%;
     --txt: white;
-    --scrollbg: #A128FF;
-    --scrollbghover: #9359FC;
+    --selector: #ff00ff;
+    --scrollbg: #ff00ff;
+    --scrollbghover: #00ffff;
 }
 
 [data-theme=light] {
     background-image: url(https://media.discordapp.net/attachments/847516069487968286/987455351039344670/dash_light_beta.png);
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: white;
     color: black;
     --geist-text-gradient: linear-gradient(180deg, rgba(0, 0, 0, .8), #000);
     --p: 262.12 83.256% 57.843%;
@@ -136,12 +238,13 @@ body {
     --wa: 36 100% 50%;
     --er: 350.96 100% 57.059%;
     --txt: black;
-    --scrollbg: #B900FF;
-    --scrollbghover: #6A00FF;
+    --selector: #00ffff;
+    --scrollbg: #00ffff;
+    --scrollbghover: #ff00ff;
 }
 
 *::selection {
-    color: var(--scrollbg);
+    color: var(--selector);
     background-color: transparent;
 }
 
