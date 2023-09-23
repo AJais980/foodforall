@@ -6,14 +6,14 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        background-image: url(https://media.discordapp.net/attachments/847516069487968286/987455350800261181/dash_hero_beta.png);
+        background-image: url(https://media.discordapp.net/attachments/675652647113457674/987459098649976863/dash_hero_vip.png);
         background-size: cover;
         background-repeat: no-repeat;
         background-color: black;
         color: white;
         --geist-text-gradient: linear-gradient(180deg, #fff, hsla(0, 0%, 100%, .75));
         --tw-bg-opacity: 1;
-        --p: 262.12 83.256% 57.843%;
+        --p: 333.33 71.429% 50.588%;
         --inc: 199.88 100% 13.608%;
         --suc: 146.03 100% 8.5882%;
         --wac: 36 100% 10%;
@@ -28,7 +28,7 @@
         --border-btn: 1px;
         --tab-border: 1px;
         --tab-radius: .5rem;
-        --pf: 268.93 94.258% 40.98%;
+        --pf: 332.89 94.258% 40.98%;
         --pc: 0 0% 100%;
         --s: 314 100% 47.059%;
         --sf: 313.97 100% 37.059%;
@@ -56,13 +56,13 @@
 
 @media (prefers-color-scheme: light) {
     :root {
-        background-image: url(https://media.discordapp.net/attachments/847516069487968286/987455351039344670/dash_light_beta.png);
+        background-image: url(https://media.discordapp.net/attachments/675652647113457674/987459098884853790/dash_hero_vip_light.png);
         background-size: cover;
         background-repeat: no-repeat;
         background-color: white;
         color: black;
         --geist-text-gradient: linear-gradient(180deg, rgba(0, 0, 0, .8), #000);
-        --p: 262.12 83.256% 57.843%;
+        --p: 333.33 71.429% 50.588%;
         --inc: 219.83 100% 90.784%;
         --suc: 146.03 100% 8.5882%;
         --wac: 36 100% 10%;
@@ -77,7 +77,7 @@
         --border-btn: 1px;
         --tab-border: 1px;
         --tab-radius: .5rem;
-        --pf: 268.93 94.258% 40.98%;
+        --pf: 332.89 94.258% 40.98%;
         --pc: 0 0% 100%;
         --s: 314 100% 47.059%;
         --sf: 313.97 100% 37.059%;
@@ -149,14 +149,14 @@ body {
 }
 
 [data-theme=dark] {
-    background-image: url(https://media.discordapp.net/attachments/847516069487968286/987455350800261181/dash_hero_beta.png);
+    background-image: url(https://media.discordapp.net/attachments/675652647113457674/987459098649976863/dash_hero_vip.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: black;
     color: white;
     --geist-text-gradient: linear-gradient(180deg, #fff, hsla(0, 0%, 100%, .75));
     --tw-bg-opacity: 1;
-    --p: 262.12 83.256% 57.843%;
+    --p: 333.33 71.429% 50.588%;
     --inc: 199.88 100% 13.608%;
     --suc: 146.03 100% 8.5882%;
     --wac: 36 100% 10%;
@@ -171,7 +171,7 @@ body {
     --border-btn: 1px;
     --tab-border: 1px;
     --tab-radius: .5rem;
-    --pf: 268.93 94.258% 40.98%;
+    --pf: 332.89 94.258% 40.98%;
     --pc: 0 0% 100%;
     --s: 314 100% 47.059%;
     --sf: 313.97 100% 37.059%;
@@ -197,13 +197,13 @@ body {
 }
 
 [data-theme=light] {
-    background-image: url(https://media.discordapp.net/attachments/847516069487968286/987455351039344670/dash_light_beta.png);
+    background-image: url(https://media.discordapp.net/attachments/675652647113457674/987459098884853790/dash_hero_vip_light.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: white;
     color: black;
     --geist-text-gradient: linear-gradient(180deg, rgba(0, 0, 0, .8), #000);
-    --p: 262.12 83.256% 57.843%;
+    --p: 333.33 71.429% 50.588%;
     --inc: 219.83 100% 90.784%;
     --suc: 146.03 100% 8.5882%;
     --wac: 36 100% 10%;
@@ -218,7 +218,7 @@ body {
     --border-btn: 1px;
     --tab-border: 1px;
     --tab-radius: .5rem;
-    --pf: 268.93 94.258% 40.98%;
+    --pf: 332.89 94.258% 40.98%;
     --pc: 0 0% 100%;
     --s: 314 100% 47.059%;
     --sf: 313.97 100% 37.059%;
