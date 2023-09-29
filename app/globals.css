@@ -734,3 +734,116 @@ body {
         margin-bottom: var(--geist-space-16x)
     }
 }
+
+.header_para {
+    line-height: 1.6em !important;
+    color: var(--geist-secondary);
+    font-weight: 400;
+    font-size: 1.25rem;
+    letter-spacing: -.02em;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto 50px;
+}
+
+/*Top Button*/
+
+.button-wrapper {
+    user-select: none;
+    display: inline-block;
+    position: relative;
+}
+
+.top-button {
+    width: 165px;
+    height: 62px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 17px;
+    border-radius: 5rem;
+    border: none;
+    position: relative;
+    background: #100720;
+    transition: 0.1s;
+    z-index: 1;
+}
+
+.button-wrapper::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle farthest-corner at 10% 20%, #ff00ff 17.8%, #00ffff 100.2%);
+    filter: blur(15px);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+
+.top-button:active {
+    transform: scale(0.9) rotate(3deg);
+    background: radial-gradient(circle farthest-corner at 10% 20%, #ff00ff 17.8%, #00ffff 100.2%);
+    transition: 0.5s;
+}
+
+/*Card*/
+
+.card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 32px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #212121;
+    border: 2px solid #313131;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    color: #e8e8e8;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.content .heading {
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.content .para {
+    line-height: 1.5;
+}
+
+.content .btn {
+    color: #e8e8e8;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    background: #0974f1;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+    box-shadow: 0 0 20px rgba(9, 117, 241, 0.8);
+    border-color: #0974f1;
+}
+
+.content .btn:hover {
+    outline: 2px solid #e8e8e8;
+    background: transparent;
+    color: #e8e8e8;
+}
+
+.content .btn:active {
+    box-shadow: none;
+}
