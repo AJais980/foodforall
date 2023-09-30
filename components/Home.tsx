@@ -4,7 +4,7 @@ import Cards from './Cards';
 
 const Home = () => {
     return (
-        <div>
+        <div className='relative'>
             <HeroTitle />
             <Cards />
         </div>

@@ -1,4 +1,6 @@
-import Link from 'next/link'
+"use client"
+
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 const HeroTitle = () => {
@@ -8,8 +10,9 @@ const HeroTitle = () => {
         "textDecoration": "inherit",
         "textWrap": "balance"
     }
+    const navigation = useRouter();
     return (
-        <>
+        <div>
             <div aria-label="Food For All" className="hero_title">
                 <span className="animated-gradient-text_background txt-food">
                     <span className="animated-gradient-text_foreground-1">
@@ -33,12 +36,10 @@ const HeroTitle = () => {
                 </span>
                 <br />
                 <div className="mt-5 button-wrapper">
-                    <Link href="/manage">
-                        <button className='top-button'>Donate</button>
-                    </Link >
+                    <button className='top-button' onClick={() => { navigation.push('/manage') }}>Donate</button>
                 </div>
             </h2 >
-        </>
+        </div>
     )
 }
 

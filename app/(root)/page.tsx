@@ -4,7 +4,9 @@ import Home from '@/components/Home'
 const page = () => {
   return (
     <div className='min-h-screen'>
-      <Home />
+      <div className='relative'>
+        <Home />
+      </div>
     </div >
   )
 }
