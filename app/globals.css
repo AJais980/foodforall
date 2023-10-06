@@ -763,7 +763,7 @@ body {
     height: 3.5px;
     background: radial-gradient(circle farthest-corner at 10% 20%, #ff00ff 17.8%, #00ffff 100.2%);
     bottom: 0;
-    margin-left: calc(50% - 25.25px);
+    margin-left: calc(50% - 30px);
 }
 
 .bg-box {
