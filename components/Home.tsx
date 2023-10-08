@@ -1,12 +1,12 @@
 import React from 'react';
 import HeroTitle from './HeroTitle';
-import Cards from './Cards';
+import HomeCards from './HomeCards';
 
 const Home = () => {
     return (
         <div className='relative'>
             <HeroTitle />
-            <Cards />
+            <HomeCards />
         </div>
     );
 };
