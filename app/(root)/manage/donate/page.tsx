@@ -1,9 +1,174 @@
-import React from 'react'
+"use client";
 
-const Donate = () => {
-    return (
-        <div className='min-h-screen'>Donate</div>
-    )
+import React, { useEffect, useState } from "react";
+import Head from "next/head";
+import DonateModal from "./DonateModal";
+import { HiPlus, HiPencilAlt, HiTrash } from "react-icons/hi";
+import { DonatedItem, DonatedItems } from "@/types";
+import { formatDistanceToNow } from "date-fns";
+
+function formatDateTimeAgo(dateTimeString: any) {
+    const formattedDate = formatDistanceToNow(new Date(dateTimeString), {
+        addSuffix: true,
+    });
+    return formattedDate;
 }
+
+export type DonateModalProps = {
+    onClose: () => void;
+    onDonate: (item: DonatedItem) => void;
+};
+
+export type PageProps = {};
+
+const Donate: React.FC<PageProps> = () => {
+    const [showModal, setShowModal] = useState(false);
+    const [editingIndex, setEditingIndex] = useState<number | null>(null);
+    const [donatedItems, setDonatedItems] = useState<DonatedItems>([]);
+    const handleScroll = (scroll: Boolean) => {
+        let fdCont = document.querySelector(".fd-cont");
+        if (scroll) {
+            fdCont?.classList.add("hidden");
+        } else {
+            fdCont?.classList.remove("hidden");
+        }
+    }
+
+    const handleEdit = (index: number) => {
+        setEditingIndex(index);
+        setShowModal(true);
+        handleScroll(true);
+    };
+
+    const handleDelete = async (index: number) => {
+        const updatedItems = donatedItems.filter((_, i) => i !== index);
+        setDonatedItems(updatedItems);
+        await fetch("/api/item", {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedItems),
+        });
+    }
+
+    useEffect(() => {
+        (async () => {
+            await fetch("/api/item", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(donatedItems),
+            });
+        })();
+    }, [donatedItems]);
+
+    useEffect(() => {
+        (async () => {
+            const res = await fetch("/api/item", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            const json = await res.json();
+            setDonatedItems((prev) => [...prev, ...json]);
+        })();
+    }, []);
+
+    const handleDonate = (item: DonatedItem) => {
+        if (editingIndex !== null) {
+            const updatedItems = [...donatedItems];
+            updatedItems[editingIndex] = item;
+            setDonatedItems(updatedItems);
+            setEditingIndex(null);
+        } else {
+            setDonatedItems([...donatedItems, item]);
+        }
+        handleScroll(false);
+        setShowModal(false);
+    };
+
+    return (
+        <div className="px-6 min-h-screen">
+            <Head>
+                <title>Food For All: Donate</title>
+                <meta
+                    name='description'
+                    content='Donate the Surplus food to the ones who are in real need.'
+                />
+            </Head>
+
+            <div className="container flex flex-col gap-4 mx-auto px-7 md:px-12 lg:px-24 p-10 fd-cont">
+                <div className="mx-auto justify-items-center prose justify-center">
+                    <h1 className="text-center font-extrabold">Food Donation</h1>
+                </div>
+                <div className="flex items-center justify-center">
+                    <button
+                        className="btn-donate"
+                        onClick={() => {
+                            setEditingIndex(null);
+                            handleScroll(true);
+                            setShowModal(true);
+                        }}
+                    >
+                        <HiPlus className="mr-2" />
+                        Donate Food
+                    </button>
+                </div>
+                <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+                    {donatedItems.map((item, index) => (
+                        <div
+                            key={index}
+                            className="bg-box p-4 rounded-md shadow-md transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-lg cursor-pointer relative"
+                        >
+                            <h3 className="text-lg font-semibold mb-2 capitalize">
+                                {item.foodName}
+                            </h3>
+                            <p>Raw/Cooked: {item.rawOrCooked}</p>
+                            <p>Location: {item.location}</p>
+                            <p>Amount: {item.amount}</p>
+                            <p>
+                                MFD/Cooked Time: {formatDateTimeAgo(item.manufactureTime)}
+                            </p>
+                            <p>
+                                Estimated Expiry: {formatDateTimeAgo(item.expiry)}
+                            </p>
+                            <div className="absolute top-2 right-2">
+                                <button
+                                    onClick={() => handleEdit(index)}
+                                    className="text-gray-700 hover:text-black"
+                                >
+                                    <HiPencilAlt className="text-xl" />
+                                </button>
+                                <button
+                                    onClick={() => handleDelete(index)}
+                                    className="ml-2 text-red-500 hover:text-red-600"
+                                >
+                                    <HiTrash className="text-xl" />
+                                </button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {showModal && (
+                <DonateModal
+                    onClose={() => {
+                        setEditingIndex(null);
+                        handleScroll(false);
+                        setShowModal(false);
+                    }}
+                    onDonate={handleDonate}
+                    editedItem={
+                        editingIndex !== null ? donatedItems[editingIndex] : undefined
+                    }
+                />
+            )}
+        </div>
+    );
+};
 
 export default Donate
