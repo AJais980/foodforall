@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import HeroTitle from './HeroTitle';
 import HomeCards from './HomeCards';
