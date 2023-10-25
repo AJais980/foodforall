@@ -6,7 +6,7 @@ import { DonatedItem } from "@/types";
 export async function getUser() {
     // Connect to the database once during app initialization
     try {
-        connectDB();
+        await connectDB();
         const currentuser = await currentUser();
         if (!currentuser) return null;
         const dbUser = await UserModel.findOne({ id: currentuser?.id });
