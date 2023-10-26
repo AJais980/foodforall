@@ -42,6 +42,16 @@ export function mergeArraysAndRemoveDuplicates(
     return mergedItems;
 }
 
+export function removeDuplicates(items: DonatedItem[]): DonatedItem[] {
+    const uniqueItems: Record<string, DonatedItem> = {};
+
+    for (const item of items) {
+        uniqueItems[item.itemId] = item;
+    }
+
+    return Object.values(uniqueItems);
+}
+
 export async function removeItemFromUser(
     userId: string,
     itemIdsToRemove: string[]

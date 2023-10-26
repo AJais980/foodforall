@@ -6,6 +6,7 @@ import DonateModal from "./DonateModal";
 import { HiPlus, HiPencilAlt, HiTrash } from "react-icons/hi";
 import { DonatedItem, DonatedItems } from "@/types";
 import { formatDistanceToNow } from "date-fns";
+import { mergeArraysAndRemoveDuplicates, removeDuplicates } from "@/lib/utils";
 
 function formatDateTimeAgo(dateTimeString: any) {
     const formattedDate = formatDistanceToNow(new Date(dateTimeString), {
@@ -61,22 +62,25 @@ const Donate: React.FC<PageProps> = () => {
                 },
             });
             const json = await res.json();
-            setDonatedItems((prev) => [...prev, ...json]);
+            setDonatedItems((prev) => mergeArraysAndRemoveDuplicates(prev, json));
             console.log("Donated GET: ", donatedItems);
         })();
     }, []);
 
     useEffect(() => {
-        console.log("Donated POST: ", donatedItems);
-        (async () => {
-            await fetch("/api/item", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(donatedItems),
-            });
-        })();
+        if (donatedItems.length > 0) {
+            console.log("Donated POST: ", donatedItems);
+            console.log("Donated POST (RDP): ", removeDuplicates(donatedItems));
+            (async () => {
+                await fetch("/api/item", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(donatedItems),
+                });
+            })();
+        }
     }, [donatedItems]);
 
     const handleDonate = (item: DonatedItem) => {
