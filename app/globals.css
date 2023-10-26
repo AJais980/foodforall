@@ -923,3 +923,9 @@ body {
         transition: linear;
     }
 }
+
+.dn-box {
+    border-radius: 0.375rem;
+    border-color: var(--selector);
+    border-width: 1px
+}

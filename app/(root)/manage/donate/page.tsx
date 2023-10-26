@@ -124,12 +124,12 @@ const Donate: React.FC<PageProps> = () => {
                     {donatedItems.map((item, index) => (
                         <div
                             key={index}
-                            className="bg-box p-4 rounded-md shadow-md transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-lg cursor-pointer relative"
+                            className="dn-box bg-box p-4 rounded-md shadow-md transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-lg cursor-pointer relative"
                         >
                             <h3 className="text-lg font-semibold mb-2 capitalize">
                                 {item.foodName}
                             </h3>
-                            <p>Raw/Cooked: {item.rawOrCooked}</p>
+                            <p>Raw/Cooked: {item.rawOrCooked == "raw" ? "Raw" : "Cooked"}</p>
                             <p>Location: {item.location}</p>
                             <p>Amount: {item.amount}</p>
                             <p>
