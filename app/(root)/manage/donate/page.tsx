@@ -45,7 +45,7 @@ const Donate: React.FC<PageProps> = () => {
         const updatedItems = donatedItems.filter((_, i) => i !== index);
         setDonatedItems(updatedItems);
         await fetch("/api/item", {
-            method: "DELETE",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -63,14 +63,11 @@ const Donate: React.FC<PageProps> = () => {
             });
             const json = await res.json();
             setDonatedItems((prev) => mergeArraysAndRemoveDuplicates(prev, json));
-            console.log("Donated GET: ", donatedItems);
         })();
     }, []);
 
     useEffect(() => {
         if (donatedItems.length > 0) {
-            console.log("Donated POST: ", donatedItems);
-            console.log("Donated POST (RDP): ", removeDuplicates(donatedItems));
             (async () => {
                 await fetch("/api/item", {
                     method: "POST",
