@@ -108,7 +108,7 @@ body {
     width: 100%;
     font-family: 'Andika', sans-serif;
     grid-column-start: 1;
-    overflow-y: auto;
+    overflow-y: hidden;
     transition-property: all;
     transition-duration: .3s;
     transition-timing-function: cubic-bezier(.4, 0, .2, 1);
@@ -125,6 +125,11 @@ body {
     --all-end-gradient: #f9cb28;
     --all-line-end: #f9cb28;
     --all-text: #ff5b4f;
+}
+
+.main {
+    overflow-y: auto;
+    max-height: 100vh;
 }
 
 ::-webkit-scrollbar {

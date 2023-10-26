@@ -20,9 +20,11 @@ export default function RootLayout({
         <ClerkProvider>
             <html lang="en">
                 <body data-theme='dark'>
-                    <Navbar />
-                    {children}
-                    <Footer />
+                    <div className="main">
+                        <Navbar />
+                        {children}
+                        <Footer />
+                    </div>
                 </body>
             </html>
         </ClerkProvider>

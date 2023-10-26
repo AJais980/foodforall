@@ -38,9 +38,11 @@ export default function RootLayout({
             height={7}
             showSpinner={false}
           />
-          <Navbar />
-          {children}
-          <Footer />
+          <div className="main">
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
         </body>
       </html>
     </ClerkProvider>
