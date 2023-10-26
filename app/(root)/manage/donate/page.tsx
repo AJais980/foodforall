@@ -53,15 +53,18 @@ const Donate: React.FC<PageProps> = () => {
     }
 
     useEffect(() => {
-        (async () => {
-            await fetch("/api/item", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(donatedItems),
-            });
-        })();
+        if (donatedItems.length > 0) {
+            console.log("Donated POST: ", donatedItems);
+            (async () => {
+                await fetch("/api/item", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(donatedItems),
+                });
+            })();
+        }
     }, [donatedItems]);
 
     useEffect(() => {
@@ -74,6 +77,7 @@ const Donate: React.FC<PageProps> = () => {
             });
             const json = await res.json();
             setDonatedItems((prev) => [...prev, ...json]);
+            console.log("Donated GET: ", donatedItems);
         })();
     }, []);
 
