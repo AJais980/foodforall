@@ -23,6 +23,7 @@ export type PageProps = {};
 
 const Donate: React.FC<PageProps> = () => {
     const [showModal, setShowModal] = useState(false);
+    const [update, setUpdate] = useState(false);
     const [editingIndex, setEditingIndex] = useState<number | null>(null);
     const [donatedItems, setDonatedItems] = useState<DonatedItems>([]);
     const handleScroll = (scroll: Boolean) => {
@@ -41,6 +42,7 @@ const Donate: React.FC<PageProps> = () => {
     };
 
     const handleDelete = async (index: number) => {
+        setUpdate(true);
         const updatedItems = donatedItems.filter((_, i) => i !== index);
         setDonatedItems(updatedItems);
         await fetch("/api/item", {
@@ -53,7 +55,7 @@ const Donate: React.FC<PageProps> = () => {
     }
 
     useEffect(() => {
-        if (donatedItems.length > 0) {
+        if (donatedItems.length > 0 || update) {
             console.log("Donated POST: ", donatedItems);
             (async () => {
                 await fetch("/api/item", {
