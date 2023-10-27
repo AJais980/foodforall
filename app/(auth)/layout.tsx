@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
     title: 'Food For All',
     metadataBase: new URL('https://acme.com'),
+    viewport: 'width=device-width, initial-scale=1, user-scalable=no',
     description: 'Food For All: Connecting Donors & Recipients.',
 }
 

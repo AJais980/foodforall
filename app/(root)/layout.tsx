@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: 'Food For All',
   metadataBase: new URL('https://acme.com'),
   description: 'Food For All: Connecting Donors & Recipients.',
+  viewport: 'width=device-width, initial-scale=1, user-scalable=no',
   openGraph: {
     title: 'Food For All',
     description: 'Food For All: Connecting Donors & Recipients. Donate surplus food to the ones who\'re in real need.',
