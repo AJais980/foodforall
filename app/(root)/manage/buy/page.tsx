@@ -91,7 +91,8 @@ const HomePage: React.FC = () => {
                         (item) => item.itemId === food.itemId
                     );
                     const inCart = isExist?.itemId ? true : false;
-
+                    console.log("User Cart: ", user?.addedToCart);
+                    console.log("inCart: ", inCart);
                     return (
                         <FoodCard
                             key={index}
