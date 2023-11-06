@@ -52,7 +52,7 @@ const HomePage: React.FC = () => {
     const handleCartAdd = async (food: DonatedItem) => {
         // code
 
-        await fetch("/api/inventory/add", {
+        await fetch("/api/inventory", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -65,7 +65,7 @@ const HomePage: React.FC = () => {
 
     const handleCartRemove = async (food: DonatedItem) => {
         // code
-        await fetch("/api/inventory/remove", {
+        await fetch("/api/inventory", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

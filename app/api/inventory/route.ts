@@ -1,4 +1,6 @@
-import { getUser } from "@/lib/utils";
+import UserModel from "@/lib/models/User";
+import { getUser, mergeArraysAndRemoveDuplicates } from "@/lib/utils";
+import { NextRequest } from "next/server";
 
 export async function GET() {
     try {
@@ -6,6 +8,51 @@ export async function GET() {
         return new Response(JSON.stringify(user?.addedToCart));
     } catch (error) {
         console.error("GET error:", error);
+        return new Response("An error occurred.", { status: 500 });
+    }
+}
+
+export async function POST(req: NextRequest) {
+    try {
+        const user = await getUser();
+        const food = await req.json();
+
+        const dbUser = await UserModel.findOne({ id: user.id });
+
+        // Set the inCart property directly on the food object
+        food.inCart = true;
+
+        // Merge the arrays and remove duplicates using Set
+        const items = mergeArraysAndRemoveDuplicates(dbUser.addedToCart, [food]);
+
+        // Update the addedToCart array directly
+        dbUser.addedToCart = Array.from(items);
+
+        await dbUser.save();
+
+        return new Response("OK");
+    } catch (error) {
+        // Handle and log the error appropriately
+        console.error("POST error:", error);
+        return new Response("An error occurred.", { status: 500 });
+    }
+}
+
+export async function DELETE(req: NextRequest) {
+    try {
+        const user = await getUser();
+        const food = await req.json();
+        const dbUser = await UserModel.findOne({ id: user.id });
+        if (dbUser) {
+            if (dbUser.addedToCart) {
+                dbUser.addedToCart.filter((d: any) => d.itemId !== food.itemId)
+                await dbUser.save();
+            }
+        }
+        return new Response("OK");
+    } catch (error) {
+        // Handle and log the error appropriately
+        console.error("DELETE error:", error);
         return new Response("An error occurred.", { status: 500 });
     }
 }
