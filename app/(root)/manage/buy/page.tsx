@@ -77,6 +77,7 @@ const HomePage: React.FC = () => {
         });
 
         await fetchUserData();
+        await fetchUserInventory();
     };
 
     const handleCartRemove = async (food: DonatedItem) => {
@@ -90,6 +91,7 @@ const HomePage: React.FC = () => {
         });
 
         await fetchUserData();
+        await fetchUserInventory();
     };
 
     const user = users?.find((user) => user.id === currentuser?.id);
@@ -107,8 +109,6 @@ const HomePage: React.FC = () => {
                         (item) => item.itemId === food.itemId
                     );
                     const inCart = isExist?.itemId ? true : false;
-                    console.log("User Cart: ", userInventory);
-                    console.log("inCart: ", inCart);
                     return (
                         <FoodCard
                             key={index}

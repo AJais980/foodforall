@@ -1,5 +1,6 @@
 import UserModel from "@/lib/models/User";
 import { getUser, mergeArraysAndRemoveDuplicates } from "@/lib/utils";
+import { DonatedItem } from "@/types";
 import { NextRequest } from "next/server";
 
 export async function GET() {
@@ -43,12 +44,9 @@ export async function DELETE(req: NextRequest) {
         const user = await getUser();
         const food = await req.json();
         const dbUser = await UserModel.findOne({ id: user.id });
-        if (dbUser) {
-            if (dbUser.addedToCart) {
-                dbUser.addedToCart.filter((d: any) => d.itemId !== food.itemId)
-                await dbUser.save();
-            }
-        }
+        const items = dbUser?.addedToCart.filter((d: DonatedItem) => d.itemId !== food.itemId);
+        dbUser.addedToCart = Array.from(items);
+        await dbUser.save();
         return new Response("OK");
     } catch (error) {
         // Handle and log the error appropriately
