@@ -10,6 +10,7 @@ const HomePage: React.FC = () => {
     const [users, setUsers] = useState<UserType[]>([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [filteredItems, setFilteredItems] = useState<DonatedItem[]>([]);
+    const [userInventory, setUserInventory] = useState<DonatedItem[]>([]);
     const currentuser = useUser()?.user;
 
     const fetchUserData = async () => {
@@ -23,9 +24,24 @@ const HomePage: React.FC = () => {
         setUsers(json);
     };
 
+    const fetchUserInventory = async () => {
+        const res = await fetch("/api/inventory", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        });
+        const json = await res.json();
+        setUserInventory(json);
+    }
+
     useEffect(() => {
         fetchUserData();
     }, []);
+
+    useEffect(() => {
+        fetchUserInventory();
+    }, [])
 
     useEffect(() => {
         if (users) {
@@ -91,7 +107,7 @@ const HomePage: React.FC = () => {
                         (item) => item.itemId === food.itemId
                     );
                     const inCart = isExist?.itemId ? true : false;
-                    console.log("User Cart: ", user?.addedToCart);
+                    console.log("User Cart: ", userInventory);
                     console.log("inCart: ", inCart);
                     return (
                         <FoodCard
