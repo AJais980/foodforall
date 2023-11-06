@@ -13,6 +13,6 @@ export async function GET() {
 async function tryGetUser() {
     let user = await getUser();
     if (!user)
-        tryGetUser();
+        return tryGetUser();
     return user;
 }
