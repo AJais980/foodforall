@@ -20,9 +20,6 @@ export async function POST(req: NextRequest) {
 
         const dbUser = await UserModel.findOne({ id: user.id });
 
-        // Set the inCart property directly on the food object
-        food.inCart = true;
-
         // Merge the arrays and remove duplicates using Set
         const items = mergeArraysAndRemoveDuplicates(dbUser.addedToCart, [food]);
 

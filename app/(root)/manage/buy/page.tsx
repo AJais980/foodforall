@@ -43,12 +43,10 @@ const HomePage: React.FC = () => {
 
     useEffect(() => {
         if (users) {
-            const foods = users?.flatMap((user) =>
+            const foods = users?.flatMap((user: UserType) =>
                 user?.foodItems.map((food) => ({
                     ...food,
-                    owner: {
-                        ...user,
-                    },
+                    ownerId: user.id
                 }))
             );
 

@@ -6,7 +6,6 @@ export type DonatedItem = {
     amount: string;
     manufactureTime: string;
     expiry: string;
-    inCart: boolean;
 };
 
 export type DonatedItems = DonatedItem[];

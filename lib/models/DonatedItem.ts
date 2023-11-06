@@ -31,9 +31,6 @@ const DonatedItemSchema = new Schema({
         type: Date,
         required: true,
     },
-    inCart: {
-        type: Boolean,
-    },
 });
 
 const DonatedItemModel =

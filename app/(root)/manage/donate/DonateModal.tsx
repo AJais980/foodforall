@@ -15,7 +15,6 @@ type DonatedItem = {
     amount: string;
     manufactureTime: string;
     expiry: string;
-    inCart: boolean;
     [key: string]: any;
 };
 
@@ -50,7 +49,6 @@ const DonateModal: React.FC<DonateModalProps> = ({
         amount: "",
         manufactureTime: "",
         expiry: "",
-        inCart: false,
     });
 
     useEffect(() => {
