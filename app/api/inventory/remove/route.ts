@@ -1,13 +1,19 @@
-import { getUser, removeItemFromUser } from "@/lib/utils";
+import UserModel from "@/lib/models/User";
+import { getUser } from "@/lib/utils";
 import { NextRequest } from "next/server";
+import { DonatedItem } from "@/types";
 
 export async function DELETE(req: NextRequest) {
     try {
         const user = await getUser();
         const food = await req.json();
-
-        await removeItemFromUser(user._id, [food.itemId]);
-
+        const dbUser = await UserModel.findOne({ id: user.id });
+        if (dbUser) {
+            if (dbUser.addedToCart) {
+                dbUser.addedToCart.filter((d: any) => d.itemId !== food.itemId)
+                await dbUser.save();
+            }
+        }
         return new Response("OK");
     } catch (error) {
         // Handle and log the error appropriately
