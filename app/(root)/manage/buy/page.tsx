@@ -4,14 +4,12 @@ import React, { useState, useEffect } from "react";
 import FoodCard from "@/components/FoodCard";
 import SearchBar from "@/components/SearchBar";
 import { UserType, DonatedItem } from "@/types";
-import { useUser } from "@clerk/nextjs";
 
 const HomePage: React.FC = () => {
     const [users, setUsers] = useState<UserType[]>([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [filteredItems, setFilteredItems] = useState<DonatedItem[]>([]);
     const [userInventory, setUserInventory] = useState<DonatedItem[]>([]);
-    const currentuser = useUser()?.user;
 
     const fetchUserData = async () => {
         const res = await fetch("/api/users", {
@@ -93,8 +91,6 @@ const HomePage: React.FC = () => {
         await fetchUserData();
         await fetchUserInventory();
     };
-
-    const user = users?.find((user) => user.id === currentuser?.id);
 
     return (
         <div className="p-6 min-h-screen w-[100%]">

@@ -132,6 +132,11 @@ body {
     max-height: 100vh;
 }
 
+::placeholder {
+    color: var(--txt) !important;
+    opacity: 0.65 !important;
+}
+
 ::-webkit-scrollbar {
     width: 7px;
     height: 7px;
