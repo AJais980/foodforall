@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
 export async function GET() {
     try {
         const user = await getUser();
-        return new Response(JSON.stringify(user?.foodItems));
+        return new Response(JSON.stringify(user?.addedToCart));
     } catch (error) {
         console.error("GET error:", error);
         return new Response("An error occurred.", { status: 500 });
