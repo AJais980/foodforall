@@ -6,6 +6,7 @@ export async function GET() {
             "name": "Aman"
         };
         const user = await getUser();
+        console.log("User: ", user);
         return new Response(JSON.stringify(test));
     } catch (error) {
         console.error("GET error:", error);
