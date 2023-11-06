@@ -103,7 +103,7 @@ const HomePage: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
                 {filteredItems?.map((food, index) => {
-                    const isExist = user?.addedToCart.find(
+                    const isExist = userInventory?.find(
                         (item) => item.itemId === food.itemId
                     );
                     const inCart = isExist?.itemId ? true : false;
