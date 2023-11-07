@@ -2,39 +2,39 @@ import NextTopLoader from 'nextjs-toploader';
 import './style.css';
 
 export const metadata = {
-  title: 'Food For All',
-  metadataBase: new URL('https://acme.com'),
-  description: 'Food For All: Connecting Donors & Recipients.',
-  viewport: 'width=device-width, initial-scale=1, user-scalable=no',
-  openGraph: {
-    title: 'Food For All',
-    description: 'Food For All: Connecting Donors & Recipients. Donate surplus food to the ones who\'re in real need.',
-    url: new URL("https://foodforall-lew6u7nej-ajais980.vercel.app"),
-    siteName: 'Food For All',
-  }
+	title: 'Food For All',
+	metadataBase: new URL('https://acme.com'),
+	description: 'Food For All: Connecting Donors & Recipients.',
+	openGraph: {
+		title: 'Food For All',
+		description: 'Food For All: Connecting Donors & Recipients. Donate surplus food to the ones who\'re in real need.',
+		url: new URL("https://foodforall-lew6u7nej-ajais980.vercel.app"),
+		siteName: 'Food For All',
+	}
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: {
-  children: React.ReactNode
+	children: React.ReactNode
 }) {
-  return (
-    <html lang="en">
-      <body>
-        <NextTopLoader
-          color={`linear-gradient(to right,
+	return (
+		<html lang="en">
+			<body>
+				<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
+				<NextTopLoader
+					color={`linear-gradient(to right,
                     #ffff00 0%,
                     #ed5a9c 30%,
                     #f49c69 60%,
                     #c044e8 100%)`}
-          easing='ease-in'
-          speed={350}
-          height={7}
-          showSpinner={false}
-        />
-        {children}
-      </body>
-    </html>
-  )
+					easing='ease-in'
+					speed={350}
+					height={7}
+					showSpinner={false}
+				/>
+				{children}
+			</body>
+		</html>
+	)
 }
