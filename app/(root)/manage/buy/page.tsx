@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import FoodCard from "@/components/FoodCard";
 import SearchBar from "@/components/SearchBar";
 import { UserType, DonatedItem } from "@/types";
+import Loader from "@/components/Loader";
 
 const HomePage: React.FC = () => {
     const [users, setUsers] = useState<UserType[]>([]);
@@ -91,28 +92,33 @@ const HomePage: React.FC = () => {
     };
 
     return (
-        <div className="p-6 min-h-screen w-[100%]">
-            <h1 className="text-2xl mb-4 font-bold text-center animate-gradient-text">
-                Add Food Items From Here
-            </h1>
-            <SearchBar searchTerm={searchTerm} onSearchTermChange={setSearchTerm} />
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
-                {filteredItems?.map((food, index) => {
-                    const isExist = userInventory?.find(
-                        (item) => item.itemId === food.itemId
-                    );
-                    const inCart = isExist?.itemId ? true : false;
-                    return (
-                        <FoodCard
-                            key={index}
-                            food={food}
-                            isAddedToCart={inCart}
-                            onAddToCart={() => handleCartAdd(food)}
-                            onRemoveFromCart={() => handleCartRemove(food)}
-                        />
-                    );
-                })}
+        <div className="px-6 min-h-screen">
+            <div className="container flex flex-col gap-4 mx-auto px-7 md:px-12 p-10 fd-cont">
+                <div className="mx-auto justify-items-center prose justify-center">
+                    <h1 className="text-center font-extrabold">
+                        Add Food Items From Here
+                    </h1>
+                </div>
+                <SearchBar searchTerm={searchTerm} onSearchTermChange={setSearchTerm} />
+                {filteredItems.length > 0 ?
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
+                        {filteredItems?.map((food, index) => {
+                            const isExist = userInventory?.find(
+                                (item) => item.itemId === food.itemId
+                            );
+                            const inCart = isExist?.itemId ? true : false;
+                            return (
+                                <FoodCard
+                                    key={index}
+                                    food={food}
+                                    isAddedToCart={inCart}
+                                    onAddToCart={() => handleCartAdd(food)}
+                                    onRemoveFromCart={() => handleCartRemove(food)}
+                                />
+                            );
+                        })}
+                    </div> : <Loader />
+                }
             </div>
         </div>
     );

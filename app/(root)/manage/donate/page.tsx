@@ -7,6 +7,7 @@ import { HiPlus, HiPencilAlt, HiTrash } from "react-icons/hi";
 import { DonatedItem, DonatedItems } from "@/types";
 import { formatDistanceToNow } from "date-fns";
 import { mergeArraysAndRemoveDuplicates, removeDuplicates } from "@/lib/utils";
+import Loader from "@/components/Loader";
 
 function formatDateTimeAgo(dateTimeString: any) {
     const formattedDate = formatDistanceToNow(new Date(dateTimeString), {
@@ -120,41 +121,43 @@ const Donate: React.FC<PageProps> = () => {
                         Donate Food
                     </button>
                 </div>
-                <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-                    {donatedItems.map((item, index) => (
-                        <div
-                            key={index}
-                            className="dn-box bg-box p-4 rounded-md shadow-md transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-lg cursor-pointer relative"
-                        >
-                            <h3 className="text-lg font-semibold mb-2 capitalize">
-                                {item.foodName}
-                            </h3>
-                            <p>Raw/Cooked: {item.rawOrCooked == "raw" ? "Raw" : "Cooked"}</p>
-                            <p>Location: {item.location}</p>
-                            <p>Amount: {item.amount}</p>
-                            <p>
-                                MFD/Cooked Time: {formatDateTimeAgo(item.manufactureTime)}
-                            </p>
-                            <p>
-                                Estimated Expiry: {formatDateTimeAgo(item.expiry)}
-                            </p>
-                            <div className="absolute top-2 right-2">
-                                <button
-                                    onClick={() => handleEdit(index)}
-                                    className="text-gray-700 hover:text-black"
-                                >
-                                    <HiPencilAlt className="text-xl" />
-                                </button>
-                                <button
-                                    onClick={() => handleDelete(index)}
-                                    className="ml-2 text-red-500 hover:text-red-600"
-                                >
-                                    <HiTrash className="text-xl" />
-                                </button>
+                {donatedItems.length > 0 ?
+                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+                        {donatedItems.map((item, index) => (
+                            <div
+                                key={index}
+                                className="dn-box bg-box p-4 rounded-md shadow-md transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-lg cursor-pointer relative"
+                            >
+                                <h3 className="text-lg font-semibold mb-2 capitalize">
+                                    {item.foodName}
+                                </h3>
+                                <p>Raw/Cooked: {item.rawOrCooked == "raw" ? "Raw" : "Cooked"}</p>
+                                <p>Location: {item.location}</p>
+                                <p>Amount: {item.amount}</p>
+                                <p>
+                                    MFD/Cooked Time: {formatDateTimeAgo(item.manufactureTime)}
+                                </p>
+                                <p>
+                                    Estimated Expiry: {formatDateTimeAgo(item.expiry)}
+                                </p>
+                                <div className="absolute top-2 right-2">
+                                    <button
+                                        onClick={() => handleEdit(index)}
+                                        className="text-gray-700 hover:text-black"
+                                    >
+                                        <HiPencilAlt className="text-xl" />
+                                    </button>
+                                    <button
+                                        onClick={() => handleDelete(index)}
+                                        className="ml-2 text-red-500 hover:text-red-600"
+                                    >
+                                        <HiTrash className="text-xl" />
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div> : <Loader />
+                }
             </div>
 
             {showModal && (
