@@ -1,12 +1,11 @@
-import { NextRequest } from "next/server";
 import UserModel from "@/lib/models/User";
 import { connectDB } from "@/lib/mongoose";
 
-export async function GET(request: NextRequest) {
+export async function GET() {
     try {
         // Connect to the database when the application starts
         await connectDB();
-        const users = await UserModel.find().lean();
+        const users = await UserModel.find({});
 
         return new Response(JSON.stringify(users));
     } catch (error) {
