@@ -27,6 +27,8 @@ const Donate: React.FC<PageProps> = () => {
     const [showModal, setShowModal] = useState(false);
     const [editingIndex, setEditingIndex] = useState<number | null>(null);
     const [donatedItems, setDonatedItems] = useState<DonatedItems>([]);
+    const [isFetching, setIsFetching] = useState(true);
+
     const handleScroll = (scroll: Boolean) => {
         let fdCont = document.querySelector(".fd-cont");
         if (scroll) {
@@ -55,6 +57,7 @@ const Donate: React.FC<PageProps> = () => {
     }
 
     useEffect(() => {
+        setIsFetching(true);
         (async () => {
             const res = await fetch("/api/item", {
                 method: "GET",
@@ -65,10 +68,12 @@ const Donate: React.FC<PageProps> = () => {
             const json = await res.json();
             setDonatedItems((prev) => mergeArraysAndRemoveDuplicates(prev, json));
         })();
+        setIsFetching(false);
     }, []);
 
     useEffect(() => {
         if (donatedItems.length > 0) {
+            setIsFetching(true);
             (async () => {
                 await fetch("/api/item", {
                     method: "POST",
@@ -78,6 +83,7 @@ const Donate: React.FC<PageProps> = () => {
                     body: JSON.stringify(donatedItems),
                 });
             })();
+            setIsFetching(false);
         }
     }, [donatedItems]);
 
@@ -121,7 +127,7 @@ const Donate: React.FC<PageProps> = () => {
                         Donate Food
                     </button>
                 </div>
-                {donatedItems.length > 0 ?
+                {!isFetching ?
                     <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
                         {donatedItems.map((item, index) => (
                             <div

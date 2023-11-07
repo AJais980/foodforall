@@ -11,6 +11,7 @@ const HomePage: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [filteredItems, setFilteredItems] = useState<DonatedItem[]>([]);
     const [userInventory, setUserInventory] = useState<DonatedItem[]>([]);
+    const [isFetching, setIsFetching] = useState(true);
 
     const fetchUserData = async () => {
         const res = await fetch("/api/users", {
@@ -44,6 +45,7 @@ const HomePage: React.FC = () => {
 
     useEffect(() => {
         if (users) {
+            setIsFetching(true);
             const foods = users?.flatMap((user: UserType) =>
                 user?.foodItems.map((food) => ({
                     ...food,
@@ -59,6 +61,7 @@ const HomePage: React.FC = () => {
             } else {
                 setFilteredItems(foods);
             }
+            setIsFetching(false);
         }
     }, [searchTerm, users]);
 
@@ -100,7 +103,7 @@ const HomePage: React.FC = () => {
                     </h1>
                 </div>
                 <SearchBar searchTerm={searchTerm} onSearchTermChange={setSearchTerm} />
-                {filteredItems.length > 0 ?
+                {!isFetching ?
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
                         {filteredItems?.map((food, index) => {
                             const isExist = userInventory?.find(
