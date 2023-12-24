@@ -6,16 +6,10 @@ export async function POST(req: NextRequest) {
     try {
         // Connect to the database when the application starts
         await connectDB();
-        const body = await req.json();
 
-        let user = await UserModel.findOne({ id: body.id });
+        let users = await UserModel.find();
 
-        if (!user) {
-            // Use `lean()` to return a plain JavaScript object
-            user = await UserModel.create(body);
-        }
-
-        return new Response(JSON.stringify(user));
+        return new Response(JSON.stringify(users));
     } catch (error) {
         console.error("POST error:", error);
         return new Response("An error occurred.", { status: 500 });
