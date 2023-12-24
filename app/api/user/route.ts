@@ -1,7 +1,7 @@
 import UserModel from "@/lib/models/User";
 import { connectDB } from "@/lib/mongoose";
 
-export async function GET() {
+export async function POST() {
     try {
         // Connect to the database when the application starts
         await connectDB();
