@@ -1,8 +1,7 @@
-import { NextRequest } from "next/server";
 import UserModel from "@/lib/models/User";
 import { connectDB } from "@/lib/mongoose";
 
-export async function POST(req: NextRequest) {
+export async function GET() {
     try {
         // Connect to the database when the application starts
         await connectDB();
