@@ -15,7 +15,7 @@ const HomePage: React.FC = () => {
 
     const fetchUserData = async () => {
         const res = await fetch("/api/users", {
-            method: "GET",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
