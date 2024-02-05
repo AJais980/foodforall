@@ -27,7 +27,7 @@ export default function RootLayout({
 		<ClerkProvider>
 			<html lang="en">
 				<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
-       <meta name="google-adsense-account" content="ca-pub-1182670892225948">
+       <meta name="google-adsense-account" content="ca-pub-1182670892225948" />
 				<body>
 					<NextTopLoader
 						color={`linear-gradient(to right,
