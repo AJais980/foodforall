@@ -6,7 +6,7 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        background-image: url(https://media.discordapp.net/attachments/675652647113457674/987459098649976863/dash_hero_vip.png);
+        background-image: url(/public/light.png);
         background-size: cover;
         background-repeat: no-repeat;
         background-color: black;
@@ -56,7 +56,7 @@
 
 @media (prefers-color-scheme: light) {
     :root {
-        background-image: url(https://media.discordapp.net/attachments/675652647113457674/987459098884853790/dash_hero_vip_light.png);
+        background-image: url(/public/light.png);
         background-size: cover;
         background-repeat: no-repeat;
         background-color: white;
@@ -159,7 +159,7 @@ body {
 }
 
 [data-theme=dark] {
-    background-image: url(https://media.discordapp.net/attachments/675652647113457674/987459098649976863/dash_hero_vip.png);
+    background-image: url(/public/dark.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: black;
@@ -207,7 +207,7 @@ body {
 }
 
 [data-theme=light] {
-    background-image: url(https://media.discordapp.net/attachments/675652647113457674/987459098884853790/dash_hero_vip_light.png);
+    background-image: url(/public/light.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: white;
