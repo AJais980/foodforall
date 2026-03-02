@@ -1,7 +1,8 @@
 import NextTopLoader from 'nextjs-toploader';
 import './style.css';
+import type { Metadata, Viewport } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
 	title: 'Food For All',
 	metadataBase: new URL('https://acme.com'),
 	description: 'Food For All: Connecting Donors & Recipients.',
@@ -13,6 +14,12 @@ export const metadata = {
 	}
 };
 
+export const viewport: Viewport = {
+	width: 'device-width',
+	initialScale: 1,
+	userScalable: false,
+};
+
 export default function RootLayout({
 	children,
 }: {
@@ -21,7 +28,6 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body>
-				<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
 				<NextTopLoader
 					color={`linear-gradient(to right,
                     #ffff00 0%,

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Head from "next/head";
 import DonateModal from "./DonateModal";
 import { HiPlus, HiPencilAlt, HiTrash } from "react-icons/hi";
 import { DonatedItem, DonatedItems } from "@/types";
@@ -102,14 +101,6 @@ const Donate: React.FC<PageProps> = () => {
 
     return (
         <div className="px-6 min-h-screen">
-            <Head>
-                <title>Food For All: Donate</title>
-                <meta
-                    name='description'
-                    content='Donate the Surplus food to the ones who are in real need.'
-                />
-            </Head>
-
             <div className="container flex flex-col gap-4 mx-auto px-7 md:px-12 lg:px-24 p-10 fd-cont">
                 <div className="mx-auto justify-items-center prose justify-center">
                     <h1 className="text-center font-extrabold">Food Donation</h1>

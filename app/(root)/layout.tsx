@@ -1,6 +1,6 @@
 import { ClerkProvider } from '@clerk/nextjs'
 import '../globals.css'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import NextTopLoader from 'nextjs-toploader'
@@ -14,9 +14,17 @@ export const metadata: Metadata = {
 		description: 'Food For All: Connecting Donors & Recipients. Donate surplus food to the ones who\'re in real need.',
 		url: new URL("https://foodforall-lew6u7nej-ajais980.vercel.app"),
 		siteName: 'Food For All',
-	}
+	},
+	other: {
+		'google-adsense-account': 'ca-pub-1182670892225948',
+	},
 }
 
+export const viewport: Viewport = {
+	width: 'device-width',
+	initialScale: 1,
+	userScalable: false,
+}
 
 export default function RootLayout({
 	children,
@@ -24,10 +32,8 @@ export default function RootLayout({
 	children: React.ReactNode
 }) {
 	return (
-		<ClerkProvider>
+		<ClerkProvider afterSignOutUrl="/">
 			<html lang="en">
-				<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
-       <meta name="google-adsense-account" content="ca-pub-1182670892225948" />
 				<body>
 					<NextTopLoader
 						color={`linear-gradient(to right,

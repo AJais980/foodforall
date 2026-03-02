@@ -1,5 +1,5 @@
 import UserModel from "@/lib/models/User";
-import { getUser } from "@/lib/utils";
+import { getUser } from "@/lib/server-utils";
 import { NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {

@@ -1,7 +1,7 @@
 import "../globals.css";
 import React from "react";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -11,15 +11,20 @@ export const metadata: Metadata = {
     description: 'Food For All: Connecting Donors & Recipients.',
 }
 
+export const viewport: Viewport = {
+    width: 'device-width',
+    initialScale: 1,
+    userScalable: false,
+}
+
 export default function RootLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
     return (
-        <ClerkProvider>
+        <ClerkProvider afterSignOutUrl="/">
             <html lang="en">
-                <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
                 <body data-theme='dark'>
                     <div className="main">
                         <Navbar />

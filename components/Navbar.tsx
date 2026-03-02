@@ -47,7 +47,7 @@ const Navbar = () => {
                             {isSignedIn ? (
                                 <>
                                     <div className='relative btn btn-square btn-ghost w-10 h-10'>
-                                        <UserButton afterSignOutUrl="/" />
+                                        <UserButton />
                                     </div>
                                 </>
                             ) : (

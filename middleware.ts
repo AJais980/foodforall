@@ -1,16 +1,11 @@
-import { authMiddleware, redirectToSignIn } from "@clerk/nextjs";
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-export default authMiddleware({
-    // An array of public routes that don't require authentication.
-    publicRoutes: ["/"],
+const isPublicRoute = createRouteMatcher(["/", "/sign-in(.*)", "/sign-up(.*)"]);
 
-    // An array of routes to be ignored by the authentication middleware.
-    // ignoredRoutes: ["/api/webhook/clerk"],
-    afterAuth(auth, req, evt) {
-        if (!auth.userId && !auth.isPublicRoute) {
-            return redirectToSignIn({ returnBackUrl: req.url });
-        }
-    },
+export default clerkMiddleware(async (auth, req) => {
+    if (!isPublicRoute(req)) {
+        await auth.protect();
+    }
 });
 
 export const config = {

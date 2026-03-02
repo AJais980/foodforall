@@ -1,5 +1,6 @@
 import UserModel from "@/lib/models/User";
-import { getUser, mergeArraysAndRemoveDuplicates } from "@/lib/utils";
+import { getUser } from "@/lib/server-utils";
+import { mergeArraysAndRemoveDuplicates } from "@/lib/utils";
 import { DonatedItem } from "@/types";
 import { NextRequest } from "next/server";
 

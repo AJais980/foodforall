@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import { saveUser } from "@/lib/utils";
+import { saveUser } from "@/lib/server-utils";
 
 export async function POST(req: NextRequest) {
     try {
